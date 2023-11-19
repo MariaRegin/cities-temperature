@@ -1,0 +1,22 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.btn {
+  background-color: rosybrown;
+  margin-bottom: 20px;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style-type: none;
+}
+
+li {
+  margin: 10px;
+}

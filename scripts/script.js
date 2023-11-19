@@ -1,11 +1,8 @@
 const cities = [
-  "Aberdeen",
   "Amsterdam",
-  "Barcelona",
   "Berlin",
   "Bogota",
   "Dublin",
-  "Hoi An",
   "Istanbul",
   "Jerusalem",
   "London",
@@ -16,28 +13,28 @@ const cities = [
   "Paris",
   "Quebec",
   "Rome",
-  "Tel-aviv",
 ];
 
 let temperatures = [];
 const button = document.querySelector(".btn");
 const list = document.querySelector(".cities");
-let newElement = document.createElement("li");
 
-button.addEventListener(
-  "click",
-  function () {
-    for (let city of cities) {
-      const userInsertedTemperature = prompt(
-        `What's the temperature in ${city}?`
-      );
-      temperatures.push(Number(userInsertedTemperature));
-      console.log(temperatures);
-      for (item of temperatures) {
-        newElement.innerHTML = `Temperature in ${city} is ${item} degree`;
-        list.append(newElement);
-      }
-    }
+button.addEventListener("click", function showMessage() {
+  for (city of cities) {
+    const userInsertedTemperature = prompt(
+      `What's the temperature in ${city}?`
+    );
+    const li = document.createElement("li");
+    li.textContent = `Current temperature in ${city} is ${userInsertedTemperature}°C`;
+    list.appendChild(li);
+    temperatures.push(Number(userInsertedTemperature));
   }
-  //return temperatures;
-);
+  const min = document.createElement("li");
+  const max = document.createElement("li");
+  min.textContent =
+    "Minimal temperature is " + Math.min(...temperatures) + "°C";
+  max.textContent =
+    "Maximum temperature is " + Math.max(...temperatures) + "°C";
+  list.appendChild(min);
+  list.appendChild(max);
+});
